@@ -1,0 +1,313 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FinWise AI – Project Summary</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.65;color:#1f2328;background:#fff;margin:0;padding:0}
+  .wrap{max-width:760px;margin:0 auto;padding:2rem 1.25rem 3rem}
+  h1{font-size:1.55rem;font-weight:700;margin:0 0 .2rem;color:#0f62fe;letter-spacing:-.02em}
+  h2{font-size:.95rem;font-weight:700;margin:2rem 0 .6rem;color:#1f2328;padding-bottom:.3rem;border-bottom:2px solid #e5e7eb;text-transform:uppercase;letter-spacing:.05em}
+  h3{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#57606a;margin:.9rem 0 .35rem}
+  p{margin:.35rem 0 .7rem;color:#57606a}
+  code{background:#f0f4ff;border:1px solid #d0e2ff;border-radius:4px;padding:1px 5px;font-size:.8rem;color:#0043ce;font-family:"Courier New",monospace}
+  /* status pill */
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:99px;font-size:.72rem;font-weight:600}
+  .pill-green{background:#d4edda;color:#155724}
+  .pill-blue{background:#dbeafe;color:#1d4ed8}
+  .pill-orange{background:#fff7ed;color:#9a3412}
+  /* badges */
+  .badge{display:inline-block;padding:1px 7px;border-radius:4px;font-size:.72rem;font-weight:600}
+  .b-blue{background:#dbeafe;color:#1d4ed8}
+  .b-green{background:#d4edda;color:#155724}
+  .b-purple{background:#ede9fe;color:#5b21b6}
+  .b-red{background:#fee2e2;color:#991b1b}
+  .b-orange{background:#fff7ed;color:#9a3412}
+  .b-teal{background:#ccfbf1;color:#115e59}
+  .b-gray{background:#f3f4f6;color:#374151}
+  /* grid */
+  .status-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.5rem 0}
+  .status-card{background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:.75rem 1rem;display:flex;align-items:center;gap:.65rem}
+  .s-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+  .s-dot-green{background:#22c55e}
+  .s-dot-orange{background:#f59e0b}
+  .s-label{font-size:.8rem;font-weight:600;color:#1f2328}
+  .s-sub{font-size:.72rem;color:#57606a}
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:.83rem;margin:.5rem 0}
+  th{background:#f7f8fa;text-align:left;padding:.45rem .75rem;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:#57606a;border:1px solid #e5e7eb}
+  td{padding:.45rem .75rem;border:1px solid #e5e7eb;vertical-align:top;color:#1f2328}
+  tr:nth-child(even) td{background:#fafbfc}
+  /* file tree */
+  .tree{background:#0d1117;color:#e6edf3;border-radius:8px;padding:1rem 1.25rem;font-family:"Courier New",monospace;font-size:.79rem;line-height:1.85;overflow-x:auto}
+  .tree .dir{color:#79c0ff;font-weight:700}
+  .tree .fi{color:#a5d6a7}
+  .tree .cm{color:#8b949e}
+  /* code blocks */
+  .code{background:#0d1117;color:#e6edf3;border-radius:8px;padding:.85rem 1rem;font-family:"Courier New",monospace;font-size:.8rem;line-height:1.7;overflow-x:auto;margin:.5rem 0}
+  .code .c{color:#8b949e}
+  .code .s{color:#7ee787}
+  .code .k{color:#ff7b72}
+  /* fix log */
+  .fix-item{display:flex;gap:.65rem;padding:.55rem .75rem;border-radius:6px;margin-bottom:.4rem;font-size:.82rem;background:#f7f8fa;border:1px solid #e5e7eb}
+  .fix-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700}
+  .fix-icon-bug{background:#fee2e2;color:#991b1b}
+  .fix-icon-ok{background:#d4edda;color:#155724}
+  /* api cards */
+  .api-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+  .api-card{background:#f7f8fa;border:1px solid #e5e7eb;border-radius:8px;padding:.75rem}
+  .api-method{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#198038;margin-bottom:.2rem}
+  .api-path{font-family:"Courier New",monospace;font-size:.8rem;font-weight:700;color:#0f62fe;margin-bottom:.25rem}
+  .api-desc{font-size:.75rem;color:#57606a}
+  /* tech tags */
+  .tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:.35rem 0}
+  .tag{background:#f0f4ff;border:1px solid #d0e2ff;border-radius:4px;padding:2px 8px;font-size:.72rem;color:#0043ce;font-weight:500}
+  .tag-g{background:#f0fff4;border-color:#c6f6d5;color:#276749}
+  .tag-p{background:#f5f3ff;border-color:#d8b4fe;color:#5b21b6}
+  .tag-r{background:#fff5f5;border-color:#fed7d7;color:#9b2c2c}
+  footer{margin-top:3rem;padding-top:1.25rem;border-top:1px solid #e5e7eb;text-align:center;font-size:.7rem;color:#57606a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  
+  <div style="display:flex;align-items:center;gap:.85rem;margin-bottom:.3rem">
+    <div style="width:42px;height:42px;background:#0f62fe;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;flex-shrink:0">💰</div>
+    <div style="flex:1">
+      <h1>FinWise AI</h1>
+      <div style="color:#57606a;font-size:.82rem">Digital Financial Literacy Assistant  ·  IBM watsonx Powered</div>
+    </div>
+    <span class="pill pill-green">✓ Live &amp; Working</span>
+  </div>
+  <p>Production-ready Flask web application — 20 files  ·  7 pages  ·  3 REST APIs  ·  Live IBM watsonx.ai chat</p>
+
+  
+  <h2>Live Connection Status</h2>
+  <div class="status-grid">
+    <div class="status-card">
+      <div class="s-dot s-dot-green"></div>
+      <div><div class="s-label">IAM Token Exchange</div><div class="s-sub">Personal API key authenticated</div></div>
+    </div>
+    <div class="status-card">
+      <div class="s-dot s-dot-green"></div>
+      <div><div class="s-label">watsonx.ai Endpoint</div><div class="s-sub">au-syd.ml.cloud.ibm.com reachable</div></div>
+    </div>
+    <div class="status-card">
+      <div class="s-dot s-dot-green"></div>
+      <div><div class="s-label">Project ID Configured</div><div class="s-sub">2b713768-e7a8-49cd-a391…</div></div>
+    </div>
+    <div class="status-card">
+      <div class="s-dot s-dot-green"></div>
+      <div><div class="s-label">Live Generation</div><div class="s-sub">llama-3-3-70b-instruct responding</div></div>
+    </div>
+  </div>
+  <p style="font-size:.78rem;margin-top:.35rem">Check anytime: <code>GET /api/watsonx/status</code> returns <code>iam_ok</code>, <code>ai_ok</code>, <code>project_set</code>, <code>live_ok</code></p>
+
+  
+  <h2>AI Model</h2>
+  <table>
+    <thead><tr><th>Key</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Model</td><td><code>meta-llama/llama-3-3-70b-instruct</code></td></tr>
+      <tr><td>Endpoint</td><td><code>POST https://au-syd.ml.cloud.ibm.com/ml/v1/text/chat?version=2023-05-29</code></td></tr>
+      <tr><td>Auth</td><td>IBM IAM Bearer token (exchanged from personal API key, cached 55 min)</td></tr>
+      <tr><td>Region</td><td>au-syd (Sydney / Asia Pacific)</td></tr>
+      <tr><td>Response format</td><td><code>choices[0].message.content</code> — OpenAI-compatible chat completions</td></tr>
+      <tr><td>Fallback</td><td>25+ curated keyword responses (budget, SIP, EMI, scams, credit, tax, retirement…)</td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>Environment Variables (.env)</h2>
+  <div class="code">
+<span class="c"># IBM watsonx credentials (personal IAM API key)</span>
+<span class="s">WATSONX_API_KEY</span>=Vpf03HNzLlSXvVGIS-8NstuLymwdUfbjzGReqoOx3sNx
+<span class="s">WATSONX_PROJECT_ID</span>=2b713768-e7a8-49cd-a391-ae320b3798da
+<span class="s">WATSONX_AI_URL</span>=https://au-syd.ml.cloud.ibm.com
+<span class="s">WATSONX_URL</span>=https://api.au-syd.watson-orchestrate.cloud.ibm.com/instances/5d0cb4d3-24cd-4940-80c2-f0bea2a0cc1f
+
+<span class="c"># App</span>
+<span class="s">SECRET_KEY</span>=change-me-in-production
+<span class="s">FLASK_ENV</span>=development
+  </div>
+  <p style="font-size:.78rem;color:#9a3412">Note: Two API keys exist — <strong>Xi7sUN…</strong> is the auto-generated <em>service credential</em> (Orchestrate only, cannot call watsonx.ai). <strong>Vpf03H…</strong> is the personal IAM key — the correct one for watsonx.ai generation.</p>
+
+  
+  <h2>Project Structure (20 files)</h2>
+  <div class="tree">
+<span class="dir">FinWise AI/</span>
+├── <span class="fi">app.py</span>               <span class="cm">← Flask app, IBM watsonx.ai integration, 3 API routes</span>
+├── <span class="fi">requirements.txt</span>     <span class="cm">← Flask 3.0, Werkzeug, python-dotenv, requests, gunicorn</span>
+├── <span class="fi">README.md</span>
+├── <span class="fi">.env</span>                 <span class="cm">← Live credentials (gitignored)</span>
+├── <span class="dir">static/</span>
+│   ├── <span class="dir">css/</span>
+│   │   └── <span class="fi">style.css</span>        <span class="cm">← IBM design system, animations, responsive layout</span>
+│   └── <span class="dir">js/</span>
+│       ├── <span class="fi">main.js</span>          <span class="cm">← window.FW set immediately; formatINR, postJSON, debounce</span>
+│       ├── <span class="fi">chat.js</span>          <span class="cm">← DOMContentLoaded, send/receive messages, typing dots</span>
+│       ├── <span class="fi">budget.js</span>        <span class="cm">← DOMContentLoaded, Chart.js donut, savings bar</span>
+│       ├── <span class="fi">emi.js</span>           <span class="cm">← DOMContentLoaded, range sliders, amortisation table</span>
+│       └── <span class="fi">contact.js</span>       <span class="cm">← DOMContentLoaded, inline validation</span>
+└── <span class="dir">templates/</span>
+    ├── <span class="fi">base.html</span>        <span class="cm">← Navbar, footer, Bootstrap 5.3, IBM Plex Sans</span>
+    ├── <span class="fi">index.html</span>       <span class="cm">← Hero, quick tools, features, benefits, CTA</span>
+    ├── <span class="fi">chat.html</span>        <span class="cm">← ChatGPT-style UI, sidebar topics, mobile offcanvas</span>
+    ├── <span class="fi">budget.html</span>      <span class="cm">← Income/expense form, results, Chart.js donut</span>
+    ├── <span class="fi">emi.html</span>         <span class="cm">← Range sliders, months/years toggle, amort table</span>
+    ├── <span class="fi">scam.html</span>        <span class="cm">← 6 educational fraud-awareness cards</span>
+    ├── <span class="fi">about.html</span>       <span class="cm">← IBM tech stack, project mission, statistics</span>
+    ├── <span class="fi">contact.html</span>     <span class="cm">← Contact form, subject dropdown, flash messages</span>
+    ├── <span class="fi">404.html</span>
+    └── <span class="fi">500.html</span>
+  </div>
+
+  
+  <h2>Pages</h2>
+  <table>
+    <thead><tr><th>Route</th><th>Page</th><th>Key Features</th><th>Tag</th></tr></thead>
+    <tbody>
+      <tr><td><code>/</code></td><td>Home</td><td>Hero banner, floating cards, quick tools grid, features section, benefits, CTA</td><td><span class="badge b-blue">Landing</span></td></tr>
+      <tr><td><code>/chat</code></td><td>AI Chat</td><td>Live IBM Llama 3.3 70B chat, typing animation, 10 suggested topics sidebar, mobile offcanvas, markdown rendering</td><td><span class="badge b-purple">AI Live</span></td></tr>
+      <tr><td><code>/budget</code></td><td>Budget Planner</td><td>5-category expense form, Chart.js donut, savings progress bar, AI suggestions from backend</td><td><span class="badge b-green">Tool</span></td></tr>
+      <tr><td><code>/emi</code></td><td>EMI Calculator</td><td>Range sliders, month/year toggle, donut chart, 12-row amortisation table</td><td><span class="badge b-green">Tool</span></td></tr>
+      <tr><td><code>/scam</code></td><td>Scam Awareness</td><td>6 cards: OTP, QR Code, Fake Loan Apps, Phishing, Investment Fraud, Customer Care Scam. Emergency helpline box.</td><td><span class="badge b-red">Safety</span></td></tr>
+      <tr><td><code>/about</code></td><td>About</td><td>IBM watsonx Orchestrate, Cloud Lite, Granite tech cards. Project mission &amp; financial literacy statistics.</td><td><span class="badge b-teal">Info</span></td></tr>
+      <tr><td><code>/contact</code></td><td>Contact</td><td>Subject dropdown, real-time char counter, client + server validation, flash messages</td><td><span class="badge b-orange">Form</span></td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>REST API Endpoints</h2>
+  <div class="api-grid">
+    <div class="api-card">
+      <div class="api-method">POST</div>
+      <div class="api-path">/api/chat</div>
+      <div class="api-desc">Live IBM watsonx.ai (Llama 3.3 70B). Falls back to 25+ curated keyword responses.</div>
+    </div>
+    <div class="api-card">
+      <div class="api-method">POST</div>
+      <div class="api-path">/api/budget</div>
+      <div class="api-desc">Returns total_expenses, savings, savings_pct, and personalised suggestions array.</div>
+    </div>
+    <div class="api-card">
+      <div class="api-method">POST</div>
+      <div class="api-path">/api/emi</div>
+      <div class="api-desc">Returns emi, total_interest, total_payment using compound interest formula.</div>
+    </div>
+    <div class="api-card" style="grid-column:1/-1">
+      <div class="api-method">GET</div>
+      <div class="api-path">/api/watsonx/status</div>
+      <div class="api-desc">Health-check. Returns <code>iam_ok</code>, <code>ai_ok</code>, <code>project_set</code>, <code>live_ok</code>, <code>model</code>, <code>message</code>. Use to verify IBM connection at any time.</div>
+    </div>
+  </div>
+
+  
+  <h2>Tech Stack</h2>
+  <table>
+    <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Backend</td>
+        <td><div class="tags"><span class="tag">Python 3.11+</span><span class="tag">Flask 3.0.3</span><span class="tag">Werkzeug 3.0.3</span><span class="tag">python-dotenv</span><span class="tag">requests 2.32</span><span class="tag">gunicorn 22</span></div></td>
+      </tr>
+      <tr>
+        <td>Frontend</td>
+        <td><div class="tags"><span class="tag">Bootstrap 5.3.3</span><span class="tag">Bootstrap Icons 1.11</span><span class="tag">Chart.js 4.4.3</span><span class="tag">IBM Plex Sans</span></div></td>
+      </tr>
+      <tr>
+        <td>AI (Live)</td>
+        <td><div class="tags"><span class="tag-g">meta-llama/llama-3-3-70b-instruct</span><span class="tag-g">IBM watsonx.ai au-syd</span><span class="tag-g">IAM Bearer token auth</span></div></td>
+      </tr>
+      <tr>
+        <td>IBM Services</td>
+        <td><div class="tags"><span class="tag-p">IBM watsonx Orchestrate</span><span class="tag-p">IBM Cloud Lite</span><span class="tag-p">IBM IAM</span></div></td>
+      </tr>
+      <tr>
+        <td>Deploy</td>
+        <td><div class="tags"><span class="tag">Gunicorn</span><span class="tag">IBM Cloud Foundry</span></div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <h2>Bug Fixes Applied (this session)</h2>
+
+  <div class="fix-item">
+    <div class="fix-icon fix-icon-ok">1</div>
+    <div>
+      <strong>JS race condition — nothing worked on any page</strong><br />
+      <span style="color:#57606a">All page scripts destructured <code>window.FW</code> before <code>main.js</code> had set it, crashing silently. Fixed by: (a) moving <code>window.FW = ...</code> to the very first statement in <code>main.js</code>, (b) wrapping all page-specific scripts in <code>DOMContentLoaded</code>.</span>
+    </div>
+  </div>
+
+  <div class="fix-item">
+    <div class="fix-icon fix-icon-ok">2</div>
+    <div>
+      <strong>Wrong IBM API key — service credential vs personal key</strong><br />
+      <span style="color:#57606a">The auto-generated service credential <code>Xi7sUN…</code> cannot call watsonx.ai generation. Replaced with personal IAM key <code>Vpf03H…</code> which has full access.</span>
+    </div>
+  </div>
+
+  <div class="fix-item">
+    <div class="fix-icon fix-icon-ok">3</div>
+    <div>
+      <strong>Truncated instance UUID — watsonx Orchestrate returning 500</strong><br />
+      <span style="color:#57606a">The URL was missing <code>-f0bea2a0cc1f</code> from the instance UUID. Corrected to the full <code>5d0cb4d3-24cd-4940-80c2-f0bea2a0cc1f</code>.</span>
+    </div>
+  </div>
+
+  <div class="fix-item">
+    <div class="fix-icon fix-icon-ok">4</div>
+    <div>
+      <strong>Wrong AI endpoint — Granite model not available in au-syd</strong><br />
+      <span style="color:#57606a">Switched from the deprecated <code>ibm/granite-13b-chat-v2</code> (unavailable in au-syd) + <code>/ml/v1/text/generation</code> to <code>meta-llama/llama-3-3-70b-instruct</code> + <code>/ml/v1/text/chat</code> (chat-completions format, confirmed live).</span>
+    </div>
+  </div>
+
+  <div class="fix-item">
+    <div class="fix-icon fix-icon-ok">5</div>
+    <div>
+      <strong>Missing WATSONX_AI_URL in .env</strong><br />
+      <span style="color:#57606a">The env file was missing <code>WATSONX_AI_URL</code>, causing the app to silently fall back to a hardcoded default. Added explicitly to <code>.env</code>.</span>
+    </div>
+  </div>
+
+  
+  <h2>Quick Start</h2>
+  <div class="code">
+<span class="c"># Install dependencies</span>
+<span class="s">pip install -r requirements.txt</span>
+
+<span class="c"># Run development server</span>
+<span class="s">python app.py</span>
+<span class="c"># Open: http://localhost:5000</span>
+
+<span class="c"># Check IBM watsonx connection</span>
+<span class="s">curl http://localhost:5000/api/watsonx/status</span>
+
+<span class="c"># Production (Gunicorn, 4 workers)</span>
+<span class="s">gunicorn -w 4 -b 0.0.0.0:8000 app:app</span>
+  </div>
+
+  
+  <h2>Test Results (latest run)</h2>
+  <table>
+    <thead><tr><th>Test</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>All 7 page routes (GET)</td><td><span class="pill pill-green">200 OK</span></td></tr>
+      <tr><td>POST /api/budget  <code>income=60k, rent=15k…</code></td><td><span class="pill pill-green">savings = ₹28,500</span></td></tr>
+      <tr><td>POST /api/emi  <code>₹10L, 9%, 120 mo</code></td><td><span class="pill pill-green">EMI = ₹12,667.58</span></td></tr>
+      <tr><td>POST /api/chat  <code>"What is a SIP?"</code></td><td><span class="pill pill-green">Live Llama 3.3 response</span></td></tr>
+      <tr><td>GET /api/watsonx/status</td><td><span class="pill pill-green">iam_ok · ai_ok · project_set · live_ok = true</span></td></tr>
+      <tr><td>app.py syntax check (ast.parse)</td><td><span class="pill pill-green">No errors</span></td></tr>
+    </tbody>
+  </table>
+
+</div>
+<footer>Made with IBM Bob</footer>
+</body>
+</html>

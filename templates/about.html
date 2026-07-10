@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="page-header bg-gradient-dark text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <div class="page-eyebrow"><i class="bi bi-info-circle-fill me-2"></i>Our Story</div>
+        <h1 class="page-title">About FinWise AI</h1>
+        <p class="page-subtitle">
+          A digital financial literacy platform built to democratise access to
+          financial education using IBM's enterprise-grade AI technology.
+        </p>
+      </div>
+      <div class="col-md-4 d-none d-md-flex justify-content-end">
+        <div class="page-header-icon" style="background:rgba(255,255,255,0.1)">
+          <i class="bi bi-cpu-fill"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+
+  <!-- Project Overview -->
+  <div class="row g-5 align-items-center mb-6">
+    <div class="col-lg-6">
+      <div class="section-eyebrow">The Project</div>
+      <h2 class="section-title">What is FinWise AI?</h2>
+      <p class="mb-3">
+        <strong>FinWise AI</strong> is a free, open-access digital financial literacy assistant
+        designed to help everyday people — students, first-time earners, small business owners,
+        and households — make informed financial decisions without needing a finance degree.
+      </p>
+      <p class="mb-3">
+        The platform combines <strong>conversational AI</strong>, practical calculation tools,
+        and curated educational content in one cohesive, easy-to-use web application.
+      </p>
+      <p class="mb-0">
+        By integrating <strong>IBM watsonx Orchestrate</strong> at its core, FinWise AI delivers
+        contextual, trustworthy answers — not random internet advice — helping users build
+        financial confidence one conversation at a time.
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <div class="about-mission-card">
+        <div class="mission-icon"><i class="bi bi-bullseye"></i></div>
+        <h4>Our Mission</h4>
+        <p class="mb-3">
+          To bridge the financial literacy gap in India and beyond by making professional-grade
+          financial guidance accessible, free, and available in plain language 24/7.
+        </p>
+        <div class="mission-stats row g-3 text-center">
+          <div class="col-4">
+            <div class="mst-num">6+</div>
+            <div class="mst-label">Free Tools</div>
+          </div>
+          <div class="col-4">
+            <div class="mst-num">24/7</div>
+            <div class="mst-label">AI Support</div>
+          </div>
+          <div class="col-4">
+            <div class="mst-num">0</div>
+            <div class="mst-label">Cost to User</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IBM Technology Stack -->
+  <div class="section-header text-center mb-5">
+    <div class="section-eyebrow">Technology</div>
+    <h2 class="section-title">Powered by IBM</h2>
+    <p class="section-subtitle">
+      FinWise AI is built on IBM's industry-leading AI and cloud technologies —
+      the same platforms trusted by Fortune 500 companies worldwide.
+    </p>
+  </div>
+
+  <div class="row g-4 mb-6">
+
+    <!-- watsonx Orchestrate -->
+    <div class="col-md-6">
+      <div class="tech-card h-100">
+        <div class="tech-card-header" style="background: linear-gradient(135deg,#0f62fe,#4589ff)">
+          <div class="tech-logo"><i class="bi bi-gear-wide-connected"></i></div>
+          <div>
+            <div class="tech-product-name">IBM watsonx Orchestrate</div>
+            <div class="tech-category">AI Automation Platform</div>
+          </div>
+        </div>
+        <div class="tech-card-body">
+          <p>
+            <strong>IBM watsonx Orchestrate</strong> is an AI-powered automation platform that
+            lets organisations build intelligent assistants capable of reasoning across tasks,
+            accessing external data sources, and executing multi-step workflows.
+          </p>
+          <p>
+            In FinWise AI, watsonx Orchestrate powers the conversational chat interface —
+            understanding natural language queries and delivering accurate, contextual
+            financial guidance.
+          </p>
+          <div class="tech-features">
+            <span class="tech-tag">Natural Language Processing</span>
+            <span class="tech-tag">Multi-step Reasoning</span>
+            <span class="tech-tag">Domain-specific Knowledge</span>
+            <span class="tech-tag">Enterprise Security</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IBM Cloud Lite -->
+    <div class="col-md-6">
+      <div class="tech-card h-100">
+        <div class="tech-card-header" style="background: linear-gradient(135deg,#198038,#24a148)">
+          <div class="tech-logo"><i class="bi bi-cloud-fill"></i></div>
+          <div>
+            <div class="tech-product-name">IBM Cloud Lite</div>
+            <div class="tech-category">Cloud Infrastructure</div>
+          </div>
+        </div>
+        <div class="tech-card-body">
+          <p>
+            <strong>IBM Cloud Lite</strong> provides a free tier of IBM's enterprise cloud
+            platform, giving developers and students access to compute, storage, AI services,
+            and over 40 managed services at no cost.
+          </p>
+          <p>
+            FinWise AI is deployable on IBM Cloud Lite using the IBM Cloud Foundry runtime
+            or containerised with IBM Code Engine — ensuring high availability and
+            enterprise-grade reliability.
+          </p>
+          <div class="tech-features">
+            <span class="tech-tag">Free Tier Available</span>
+            <span class="tech-tag">Global Data Centres</span>
+            <span class="tech-tag">99.9% SLA</span>
+            <span class="tech-tag">GDPR Compliant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IBM Granite -->
+    <div class="col-md-6">
+      <div class="tech-card h-100">
+        <div class="tech-card-header" style="background: linear-gradient(135deg,#6929c4,#9c4dff)">
+          <div class="tech-logo"><i class="bi bi-cpu-fill"></i></div>
+          <div>
+            <div class="tech-product-name">IBM Granite</div>
+            <div class="tech-category">Foundation Model</div>
+          </div>
+        </div>
+        <div class="tech-card-body">
+          <p>
+            <strong>IBM Granite</strong> is IBM's family of open, enterprise-grade foundation
+            models trained on curated, enterprise-safe data. Granite models are optimised for
+            business tasks including summarisation, classification, and question answering.
+          </p>
+          <p>
+            The chat interface in FinWise AI uses <em>ibm/granite-13b-chat-v2</em> —
+            a conversational variant fine-tuned for helpful, safe, and accurate dialogue.
+            Granite is fully transparent, auditable, and indemnified by IBM.
+          </p>
+          <div class="tech-features">
+            <span class="tech-tag">Open Source</span>
+            <span class="tech-tag">Enterprise Safe</span>
+            <span class="tech-tag">IBM Indemnified</span>
+            <span class="tech-tag">Multilingual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flask + Bootstrap -->
+    <div class="col-md-6">
+      <div class="tech-card h-100">
+        <div class="tech-card-header" style="background: linear-gradient(135deg,#e67e00,#ff9800)">
+          <div class="tech-logo"><i class="bi bi-code-slash"></i></div>
+          <div>
+            <div class="tech-product-name">Flask + Bootstrap 5</div>
+            <div class="tech-category">Web Framework & UI</div>
+          </div>
+        </div>
+        <div class="tech-card-body">
+          <p>
+            The frontend is built with <strong>Bootstrap 5.3</strong> for a responsive,
+            mobile-first layout and <strong>IBM Plex Sans</strong> typography to match IBM's
+            visual identity guidelines.
+          </p>
+          <p>
+            The backend uses <strong>Python Flask</strong> — a lightweight, production-ready
+            WSGI framework — providing RESTful API endpoints for chat, budget analysis, and
+            EMI calculation, all independently testable and extensible.
+          </p>
+          <div class="tech-features">
+            <span class="tech-tag">Python 3.11+</span>
+            <span class="tech-tag">Flask 3.0</span>
+            <span class="tech-tag">Bootstrap 5.3</span>
+            <span class="tech-tag">IBM Plex Fonts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Purpose -->
+  <div class="about-purpose-box">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <div class="section-eyebrow text-white-50">Why This Matters</div>
+        <h3 class="text-white mb-3">Financial Literacy is a Right, Not a Privilege</h3>
+        <p class="text-white-75 mb-0">
+          According to the National Centre for Financial Education, India's financial literacy
+          rate stands at just 27%. This means over 73% of Indians — hundreds of millions of
+          people — lack the basic knowledge needed to manage money effectively, avoid scams,
+          or plan for retirement. FinWise AI exists to change that, one conversation at a time.
+        </p>
+      </div>
+      <div class="col-lg-4 text-center">
+        <div class="purpose-stat">
+          <div class="ps-num">73%</div>
+          <div class="ps-label">of Indians lack basic financial literacy</div>
+          <div class="ps-source">Source: NCFE Financial Literacy Survey</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

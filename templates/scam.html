@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+{% block title %}Scam Awareness{% endblock %}
+
+{% block content %}
+<div class="page-header bg-gradient-danger text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <div class="page-eyebrow"><i class="bi bi-shield-exclamation me-2"></i>Stay Protected</div>
+        <h1 class="page-title">Scam Awareness</h1>
+        <p class="page-subtitle">
+          Know the tricks fraudsters use so you never fall victim to them.
+          Knowledge is your strongest shield.
+        </p>
+      </div>
+      <div class="col-md-4 d-none d-md-flex justify-content-end">
+        <div class="page-header-icon" style="background:rgba(255,255,255,0.12)">
+          <i class="bi bi-shield-fill-exclamation"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+
+  <!-- Alert banner -->
+  <div class="scam-alert-banner mb-5">
+    <i class="bi bi-megaphone-fill scam-alert-icon"></i>
+    <div>
+      <strong>Remember:</strong> Your bank or any legitimate organisation will
+      <u>never</u> ask for your OTP, PIN, CVV, or full card number over the phone or via a link.
+      When in doubt — hang up and call back on the official number.
+    </div>
+  </div>
+
+  <!-- Scam Cards Grid -->
+  <div class="row g-4">
+
+    <!-- OTP Scam -->
+    <div class="col-md-6 col-lg-4">
+      <div class="scam-card h-100">
+        <div class="scam-card-top" style="background: linear-gradient(135deg,#da1e28,#ff5252)">
+          <div class="scam-icon-wrap"><i class="bi bi-phone-vibrate-fill"></i></div>
+          <span class="scam-badge">Very Common</span>
+        </div>
+        <div class="scam-card-body">
+          <h5 class="scam-title">OTP Scam</h5>
+          <p class="scam-desc">
+            Fraudsters pose as bank employees, TRAI officers, or delivery agents and trick
+            you into revealing your One-Time Password (OTP) to "verify" your account or
+            reverse a failed transaction.
+          </p>
+          <div class="scam-section-label"><i class="bi bi-exclamation-circle me-1"></i>Red Flags</div>
+          <ul class="scam-list">
+            <li>Unsolicited call claiming your SIM / account will be blocked</li>
+            <li>Caller asks you to "share" or "read out" the OTP you just received</li>
+            <li>Urgency or threatening language</li>
+          </ul>
+          <div class="scam-section-label text-success"><i class="bi bi-shield-check me-1"></i>How to Stay Safe</div>
+          <ul class="scam-list">
+            <li>Never share an OTP with anyone — ever</li>
+            <li>Hang up immediately and call the official bank helpline</li>
+            <li>Banks never ask for OTPs over the phone</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR Code Scam -->
+    <div class="col-md-6 col-lg-4">
+      <div class="scam-card h-100">
+        <div class="scam-card-top" style="background: linear-gradient(135deg,#6929c4,#9c4dff)">
+          <div class="scam-icon-wrap"><i class="bi bi-qr-code-scan"></i></div>
+          <span class="scam-badge">Rising Threat</span>
+        </div>
+        <div class="scam-card-body">
+          <h5 class="scam-title">QR Code Scam</h5>
+          <p class="scam-desc">
+            Scammers send fraudulent QR codes claiming you will "receive" money upon scanning.
+            In reality, scanning initiates a payment from your account — not to it.
+          </p>
+          <div class="scam-section-label"><i class="bi bi-exclamation-circle me-1"></i>Red Flags</div>
+          <ul class="scam-list">
+            <li>Someone on OLX / Facebook Marketplace wants to pay via QR code</li>
+            <li>QR code comes with a request to "enter your PIN to receive money"</li>
+            <li>Pressure to scan quickly</li>
+          </ul>
+          <div class="scam-section-label text-success"><i class="bi bi-shield-check me-1"></i>How to Stay Safe</div>
+          <ul class="scam-list">
+            <li>QR codes are for sending money, not receiving it</li>
+            <li>You never need to enter a PIN to receive a payment</li>
+            <li>Verify any QR transaction before approving</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fake Loan Apps -->
+    <div class="col-md-6 col-lg-4">
+      <div class="scam-card h-100">
+        <div class="scam-card-top" style="background: linear-gradient(135deg,#0f62fe,#4589ff)">
+          <div class="scam-icon-wrap"><i class="bi bi-phone-fill"></i></div>
+          <span class="scam-badge">High Risk</span>
+        </div>
+        <div class="scam-card-body">
+          <h5 class="scam-title">Fake Loan Apps</h5>
+          <p class="scam-desc">
+            Unofficial lending apps offer instant loans with minimal documentation, then
+            charge hidden fees, access your contacts & gallery, and blackmail you with
+            morphed images if you're late on a payment.
+          </p>
+          <div class="scam-section-label"><i class="bi bi-exclamation-circle me-1"></i>Red Flags</div>
+          <ul class="scam-list">
+            <li>App not listed on RBI's authorised NBFC list</li>
+            <li>Requests permission to access contacts, photos, and SMS</li>
+            <li>No physical address or customer care number</li>
+          </ul>
+          <div class="scam-section-label text-success"><i class="bi bi-shield-check me-1"></i>How to Stay Safe</div>
+          <ul class="scam-list">
+            <li>Borrow only from RBI-registered banks and NBFCs</li>
+            <li>Check the RBI CRILC list before applying</li>
+            <li>Report harassment to cyber police (1930)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phishing -->
+    <div class="col-md-6 col-lg-4">
+      <div class="scam-card h-100">
+        <div class="scam-card-top" style="background: linear-gradient(135deg,#e67e00,#ff9800)">
+          <div class="scam-icon-wrap"><i class="bi bi-envelope-open-fill"></i></div>
+          <span class="scam-badge">Evergreen Threat</span>
+        </div>
+        <div class="scam-card-body">
+          <h5 class="scam-title">Phishing</h5>
+          <p class="scam-desc">
+            Fake emails, SMS, or WhatsApp messages disguised as legitimate banks, income
+            tax departments, or e-commerce sites to steal your credentials and card details.
+          </p>
+          <div class="scam-section-label"><i class="bi bi-exclamation-circle me-1"></i>Red Flags</div>
+          <ul class="scam-list">
+            <li>Misspelled or lookalike domains (e.g. stateb-ank.com)</li>
+            <li>"Your KYC is expired — update now or account blocked"</li>
+            <li>Unexpected prize / refund claim with a link</li>
+          </ul>
+          <div class="scam-section-label text-success"><i class="bi bi-shield-check me-1"></i>How to Stay Safe</div>
+          <ul class="scam-list">
+            <li>Always check the full URL before entering credentials</li>
+            <li>Go directly to the official website, never via links in messages</li>
+            <li>Enable two-factor authentication on all accounts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Investment Fraud -->
+    <div class="col-md-6 col-lg-4">
+      <div class="scam-card h-100">
+        <div class="scam-card-top" style="background: linear-gradient(135deg,#198038,#24a148)">
+          <div class="scam-icon-wrap"><i class="bi bi-graph-up-arrow"></i></div>
+          <span class="scam-badge">Growing Fast</span>
+        </div>
+        <div class="scam-card-body">
+          <h5 class="scam-title">Investment Fraud</h5>
+          <p class="scam-desc">
+            Ponzi / pyramid schemes and fake trading platforms promise unrealistic returns
+            (10–30% monthly) to lure victims. Early investors receive payouts funded by
+            newer victims until the scheme collapses.
+          </p>
+          <div class="scam-section-label"><i class="bi bi-exclamation-circle me-1"></i>Red Flags</div>
+          <ul class="scam-list">
+            <li>Guaranteed returns that outperform the stock market by far</li>
+            <li>Pressure to recruit others to unlock higher returns</li>
+            <li>No SEBI registration or regulatory oversight</li>
+          </ul>
+          <div class="scam-section-label text-success"><i class="bi bi-shield-check me-1"></i>How to Stay Safe</div>
+          <ul class="scam-list">
+            <li>Verify SEBI registration at sebi.gov.in</li>
+            <li>If returns sound too good to be true — they are</li>
+            <li>Report to SEBI SCORES portal or call 1800-266-7575</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Care Scam -->
+    <div class="col-md-6 col-lg-4">
+      <div class="scam-card h-100">
+        <div class="scam-card-top" style="background: linear-gradient(135deg,#9f1853,#d02670)">
+          <div class="scam-icon-wrap"><i class="bi bi-headset"></i></div>
+          <span class="scam-badge">Targeted Attack</span>
+        </div>
+        <div class="scam-card-body">
+          <h5 class="scam-title">Customer Care Scam</h5>
+          <p class="scam-desc">
+            Fake customer care numbers appear in Google Search ads above the real ones.
+            When you call, imposters ask for remote access to your device or request
+            payment to "resolve" your issue.
+          </p>
+          <div class="scam-section-label"><i class="bi bi-exclamation-circle me-1"></i>Red Flags</div>
+          <ul class="scam-list">
+            <li>Phone number found via a Google ad (not the official site)</li>
+            <li>Agent asks to install AnyDesk, TeamViewer, or similar tools</li>
+            <li>Upfront "processing fee" to resolve a complaint</li>
+          </ul>
+          <div class="scam-section-label text-success"><i class="bi bi-shield-check me-1"></i>How to Stay Safe</div>
+          <ul class="scam-list">
+            <li>Always get helpline numbers from the back of your card or official website</li>
+            <li>Never install remote-access software for customer support</li>
+            <li>Legitimate support never charges a fee to solve problems</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end row -->
+
+  <!-- Emergency Info Box -->
+  <div class="scam-emergency-box mt-5">
+    <div class="row align-items-center g-3">
+      <div class="col-md-1 text-center">
+        <i class="bi bi-telephone-fill scam-emergency-icon"></i>
+      </div>
+      <div class="col-md-7">
+        <h5 class="mb-1">Been Scammed? Act Immediately.</h5>
+        <p class="mb-0 text-muted">
+          Time is critical. The faster you report, the better chance of recovering funds.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex flex-wrap gap-2 justify-content-md-end">
+          <div class="emergency-number">
+            <span class="en-label">Cyber Crime</span>
+            <span class="en-num">1930</span>
+          </div>
+          <div class="emergency-number">
+            <span class="en-label">Online Portal</span>
+            <span class="en-num">cybercrime.gov.in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

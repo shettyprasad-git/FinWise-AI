@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block title %}AI Chat{% endblock %}
+
+{% block extra_head %}
+<style>
+  body { background: #f0f4ff; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="chat-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="chat-sidebar d-none d-lg-flex flex-column">
+    <div class="sidebar-header">
+      <div class="d-flex align-items-center gap-2">
+        <div class="brand-icon brand-icon-sm"><i class="bi bi-cpu-fill"></i></div>
+        <span class="fw-semibold text-white">FinWise AI</span>
+      </div>
+      <button id="clearChatBtn" class="btn btn-sm btn-sidebar-clear" title="Clear chat">
+        <i class="bi bi-trash3"></i>
+      </button>
+    </div>
+
+    <div class="sidebar-section-label">Suggested Topics</div>
+    <nav class="sidebar-topics flex-grow-1">
+      {% set topics = [
+        ('bi-wallet2',             '#4fc3f7', 'Budgeting Basics',        'How do I create a monthly budget?'),
+        ('bi-percent',             '#81c784', 'Savings Rate',            'What is a good savings rate?'),
+        ('bi-credit-card',        '#ffb74d', 'Credit Score',            'How can I improve my credit score?'),
+        ('bi-bank',                '#ce93d8', 'Fixed Deposits',          'What are fixed deposits and how do they work?'),
+        ('bi-graph-up-arrow',     '#80cbc4', 'Mutual Funds',            'Explain SIP in mutual funds.'),
+        ('bi-shield-lock',        '#ef9a9a', 'Online Safety',           'How do I stay safe from online fraud?'),
+        ('bi-receipt-cutoff',     '#fff176', 'Tax Saving',              'How do I save income tax legally?'),
+        ('bi-cash-stack',          '#a5d6a7', 'Emergency Fund',          'Why do I need an emergency fund?'),
+        ('bi-house-door',         '#90caf9', 'Home Loan',               'What is the process for a home loan?'),
+        ('bi-piggy-bank',         '#f48fb1', 'Retirement',              'How should I plan for retirement?'),
+      ] %}
+      {% for icon, color, label, query in topics %}
+      <button class="topic-btn" data-query="{{ query }}">
+        <span class="topic-icon" style="color:{{ color }}"><i class="bi {{ icon }}"></i></span>
+        <span class="topic-label">{{ label }}</span>
+        <i class="bi bi-chevron-right topic-arrow"></i>
+      </button>
+      {% endfor %}
+    </nav>
+
+    <div class="sidebar-footer-info">
+      <i class="bi bi-info-circle me-1"></i>
+      Powered by IBM watsonx Orchestrate
+    </div>
+  </aside>
+
+  <!-- CHAT MAIN -->
+  <div class="chat-main d-flex flex-column">
+
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="d-flex align-items-center gap-3">
+        <div class="chat-avatar-header">
+          <i class="bi bi-cpu-fill"></i>
+          <span class="online-dot"></span>
+        </div>
+        <div>
+          <div class="chat-header-name">FinWise AI</div>
+          <div class="chat-header-status">
+            <span class="status-dot"></span> Online · IBM watsonx Orchestrate
+          </div>
+        </div>
+      </div>
+      <div class="d-flex gap-2 align-items-center">
+        <!-- Mobile clear button -->
+        <button id="clearChatBtnMobile" class="btn btn-sm btn-outline-secondary d-lg-none" title="Clear chat">
+          <i class="bi bi-trash3"></i>
+        </button>
+        <!-- Mobile topics toggle -->
+        <button
+          class="btn btn-sm btn-outline-primary d-lg-none"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#topicsOffcanvas"
+        >
+          <i class="bi bi-list-ul me-1"></i>Topics
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages Area -->
+    <div class="chat-messages" id="chatMessages">
+      <!-- Welcome message -->
+      <div class="message-wrapper assistant">
+        <div class="msg-avatar"><i class="bi bi-cpu-fill"></i></div>
+        <div class="msg-content">
+          <div class="msg-bubble">
+            <p class="mb-2">👋 <strong>Hello! I'm FinWise AI.</strong></p>
+            <p class="mb-2">
+              I'm your personal digital financial literacy assistant powered by
+              <strong>IBM watsonx Orchestrate</strong>. I can help you with:
+            </p>
+            <ul class="mb-2 ps-3">
+              <li>Budgeting and savings strategies</li>
+              <li>Understanding loans and EMIs</li>
+              <li>Identifying financial scams</li>
+              <li>Investment basics</li>
+              <li>Credit scores and more</li>
+            </ul>
+            <p class="mb-0">What financial topic can I help you with today?</p>
+          </div>
+          <div class="msg-meta">FinWise AI · just now</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing indicator (hidden by default) -->
+    <div class="typing-indicator d-none" id="typingIndicator">
+      <div class="typing-avatar"><i class="bi bi-cpu-fill"></i></div>
+      <div class="typing-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="typing-text">FinWise AI is thinking…</span>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="chat-input-area">
+      <form id="chatForm" class="chat-form" autocomplete="off">
+        <div class="chat-input-wrapper">
+          <textarea
+            id="chatInput"
+            class="chat-input"
+            placeholder="Ask me anything about personal finance…"
+            rows="1"
+            maxlength="500"
+            aria-label="Chat input"
+          ></textarea>
+          <button type="submit" id="sendBtn" class="send-btn" aria-label="Send message">
+            <i class="bi bi-send-fill"></i>
+          </button>
+        </div>
+        <div class="chat-input-footer d-flex justify-content-between align-items-center mt-1 px-1">
+          <span class="char-counter" id="charCounter">0 / 500</span>
+          <span class="input-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for new line</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile: Offcanvas topics -->
+<div class="offcanvas offcanvas-start sidebar-offcanvas" tabindex="-1" id="topicsOffcanvas">
+  <div class="offcanvas-header">
+    <h6 class="offcanvas-title text-white">Suggested Topics</h6>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    {% for icon, color, label, query in topics %}
+    <button class="topic-btn" data-query="{{ query }}">
+      <span class="topic-icon" style="color:{{ color }}"><i class="bi {{ icon }}"></i></span>
+      <span class="topic-label">{{ label }}</span>
+      <i class="bi bi-chevron-right topic-arrow"></i>
+    </button>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% block title %}EMI Calculator{% endblock %}
+
+{% block content %}
+<div class="page-header bg-gradient-purple text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <div class="page-eyebrow"><i class="bi bi-calculator-fill me-2"></i>Financial Tool</div>
+        <h1 class="page-title">EMI Calculator</h1>
+        <p class="page-subtitle">
+          Calculate your Equated Monthly Instalment, total interest payable, and the
+          total cost of any loan — instantly.
+        </p>
+      </div>
+      <div class="col-md-4 d-none d-md-flex justify-content-end">
+        <div class="page-header-icon" style="background: rgba(255,255,255,0.12)">
+          <i class="bi bi-calculator-fill"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row g-4 justify-content-center">
+
+    <!-- Input Card -->
+    <div class="col-lg-5">
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h5><i class="bi bi-sliders me-2 text-purple"></i>Loan Details</h5>
+        </div>
+        <div class="tool-card-body">
+          <form id="emiForm" novalidate>
+
+            <!-- Loan Amount -->
+            <div class="input-group-fw mb-4">
+              <label class="form-label-fw">
+                <i class="bi bi-cash-stack me-1 text-purple"></i>Loan Amount
+              </label>
+              <div class="input-with-prefix">
+                <span class="input-prefix">₹</span>
+                <input type="number" id="principal" class="form-control-fw"
+                       placeholder="e.g. 500000" min="1000" required />
+              </div>
+              <input type="range" id="principalRange" class="range-slider mt-2"
+                     min="10000" max="10000000" step="10000" value="500000" />
+              <div class="range-labels">
+                <span>₹10K</span><span>₹1 Cr</span>
+              </div>
+            </div>
+
+            <!-- Interest Rate -->
+            <div class="input-group-fw mb-4">
+              <label class="form-label-fw">
+                <i class="bi bi-percent me-1 text-purple"></i>Annual Interest Rate
+              </label>
+              <div class="input-with-suffix">
+                <input type="number" id="annualRate" class="form-control-fw"
+                       placeholder="e.g. 8.5" min="0.1" max="36" step="0.1" required />
+                <span class="input-suffix">% p.a.</span>
+              </div>
+              <input type="range" id="rateRange" class="range-slider mt-2"
+                     min="1" max="30" step="0.1" value="8.5" />
+              <div class="range-labels">
+                <span>1%</span><span>30%</span>
+              </div>
+            </div>
+
+            <!-- Tenure -->
+            <div class="input-group-fw mb-4">
+              <label class="form-label-fw">
+                <i class="bi bi-calendar3 me-1 text-purple"></i>Loan Tenure
+              </label>
+              <div class="tenure-toggle d-flex gap-2 mb-2">
+                <button type="button" class="btn btn-sm tenure-btn active" data-unit="months">Months</button>
+                <button type="button" class="btn btn-sm tenure-btn" data-unit="years">Years</button>
+              </div>
+              <input type="number" id="tenure" class="form-control-fw"
+                     placeholder="e.g. 60" min="1" required />
+              <input type="range" id="tenureRange" class="range-slider mt-2"
+                     min="1" max="360" step="1" value="60" />
+              <div class="range-labels">
+                <span>1 mo</span><span id="tenureRangeMax">360 mo</span>
+              </div>
+            </div>
+
+            <div class="mt-4 d-grid gap-2">
+              <button type="submit" class="btn btn-fw-primary" style="background: #6929c4; border-color: #6929c4;">
+                <i class="bi bi-calculator me-2"></i>Calculate EMI
+              </button>
+              <button type="button" id="resetEmi" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-counterclockwise me-2"></i>Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Card -->
+    <div class="col-lg-7">
+      <!-- Placeholder -->
+      <div id="emiPlaceholder" class="tool-card h-100 d-flex flex-column align-items-center justify-content-center text-center py-5">
+        <div class="placeholder-icon" style="background:#6929c415;color:#6929c4"><i class="bi bi-calculator"></i></div>
+        <h5 class="placeholder-title mt-3">Your EMI results will appear here</h5>
+        <p class="placeholder-subtitle">Adjust the sliders or enter values and click "Calculate EMI"</p>
+      </div>
+
+      <!-- Results -->
+      <div id="emiResults" class="d-none">
+        <!-- EMI Highlight -->
+        <div class="emi-highlight-card mb-4">
+          <div class="emh-label">Monthly EMI</div>
+          <div class="emh-value" id="resEmi">₹0</div>
+          <div class="emh-sub">Every month for <span id="resTenureLabel">—</span></div>
+        </div>
+
+        <!-- Summary row -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-4">
+            <div class="result-mini-card rc-purple">
+              <div class="rmc-label">Principal</div>
+              <div class="rmc-value" id="resPrincipal">₹0</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="result-mini-card rc-red">
+              <div class="rmc-label">Total Interest</div>
+              <div class="rmc-value" id="resTotalInterest">₹0</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="result-mini-card rc-blue">
+              <div class="rmc-label">Total Payment</div>
+              <div class="rmc-value" id="resTotalPayment">₹0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donut chart + legend -->
+        <div class="tool-card mb-4">
+          <div class="tool-card-header">
+            <h6><i class="bi bi-pie-chart-fill me-2 text-purple"></i>Payment Breakdown</h6>
+          </div>
+          <div class="tool-card-body">
+            <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+              <div class="budget-donut-wrap">
+                <canvas id="emiDonut" width="200" height="200"></canvas>
+              </div>
+              <div class="flex-grow-1">
+                <div class="emi-legend-item mb-3">
+                  <span class="eli-dot" style="background:#6929c4"></span>
+                  <div>
+                    <div class="eli-label">Principal Amount</div>
+                    <div class="eli-value" id="legendPrincipal">₹0</div>
+                  </div>
+                </div>
+                <div class="emi-legend-item">
+                  <span class="eli-dot" style="background:#da1e28"></span>
+                  <div>
+                    <div class="eli-label">Total Interest</div>
+                    <div class="eli-value" id="legendInterest">₹0</div>
+                  </div>
+                </div>
+                <hr />
+                <div class="emi-legend-item">
+                  <span class="eli-dot" style="background:#0f62fe"></span>
+                  <div>
+                    <div class="eli-label">Total Payable</div>
+                    <div class="eli-value fw-bold" id="legendTotal">₹0</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amortisation snippet -->
+        <div class="tool-card">
+          <div class="tool-card-header d-flex justify-content-between align-items-center">
+            <h6 class="mb-0"><i class="bi bi-table me-2 text-purple"></i>Amortisation Schedule</h6>
+            <span class="badge bg-secondary" id="amortBadge">First 12 months</span>
+          </div>
+          <div class="tool-card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-sm amort-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Month</th>
+                    <th>EMI</th>
+                    <th>Principal</th>
+                    <th>Interest</th>
+                    <th>Balance</th>
+                  </tr>
+                </thead>
+                <tbody id="amortBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='js/emi.js') }}"></script>
+{% endblock %}

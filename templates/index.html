@@ -1,0 +1,212 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-section">
+  <div class="hero-bg-overlay"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center min-vh-85 py-5">
+      <div class="col-lg-6 text-white">
+        <div class="hero-badge mb-4 animate-fade-up" style="animation-delay:0.1s">
+          <i class="bi bi-stars me-2"></i>Powered by IBM watsonx Orchestrate
+        </div>
+        <h1 class="display-4 fw-bold lh-sm mb-4 animate-fade-up" style="animation-delay:0.2s">
+          Your Smart<br />
+          <span class="hero-highlight">Financial Guide</span><br />
+          Powered by AI
+        </h1>
+        <p class="lead mb-5 animate-fade-up" style="animation-delay:0.3s; opacity:0.88;">
+          FinWise AI helps you budget smarter, understand loans, recognise scams,
+          and take control of your financial future — all in plain, simple language.
+        </p>
+        <div class="d-flex flex-wrap gap-3 animate-fade-up" style="animation-delay:0.4s">
+          <a href="{{ url_for('chat') }}" class="btn btn-hero-primary btn-lg px-4 py-3">
+            <i class="bi bi-chat-dots-fill me-2"></i>Start Chat
+          </a>
+          <a href="{{ url_for('budget') }}" class="btn btn-hero-outline btn-lg px-4 py-3">
+            <i class="bi bi-pie-chart-fill me-2"></i>Plan My Budget
+          </a>
+        </div>
+        <div class="hero-stats d-flex flex-wrap gap-4 mt-5 animate-fade-up" style="animation-delay:0.5s">
+          <div class="stat-item">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Finance Tools</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Free to Use</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-num">AI</div>
+            <div class="stat-label">Powered Insights</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-flex justify-content-center animate-fade-left" style="animation-delay:0.3s">
+        <div class="hero-illustration">
+          <div class="hero-card-float card-float-1">
+            <i class="bi bi-shield-check text-success"></i>
+            <span>Scam Protected</span>
+          </div>
+          <div class="hero-card-float card-float-2">
+            <i class="bi bi-graph-up-arrow text-warning"></i>
+            <span>Smart Savings</span>
+          </div>
+          <div class="hero-card-float card-float-3">
+            <i class="bi bi-cpu-fill text-info"></i>
+            <span>IBM watsonx AI</span>
+          </div>
+          <div class="hero-main-icon">
+            <i class="bi bi-cash-coin"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ===== QUICK TOOLS ===== -->
+<section class="py-5 bg-light-blue">
+  <div class="container">
+    <div class="row g-3 justify-content-center">
+      {% set tools = [
+        ('chat',    'bi-chat-dots-fill',   '#0f62fe', 'AI Chat',        'Ask any finance question'),
+        ('budget',  'bi-pie-chart-fill',   '#198038', 'Budget Planner', 'Analyse income vs expenses'),
+        ('emi',     'bi-calculator-fill',  '#6929c4', 'EMI Calculator', 'Plan your loan payments'),
+        ('scam',    'bi-shield-fill-check','#da1e28', 'Scam Awareness', 'Stay safe from fraud'),
+      ] %}
+      {% for route, icon, color, title, desc in tools %}
+      <div class="col-6 col-md-3">
+        <a href="{{ url_for(route) }}" class="quick-tool-card text-decoration-none">
+          <div class="qt-icon" style="background: {{ color }}20; color: {{ color }}">
+            <i class="bi {{ icon }}"></i>
+          </div>
+          <div class="qt-title">{{ title }}</div>
+          <div class="qt-desc">{{ desc }}</div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="py-6" id="features">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <div class="section-eyebrow">What We Offer</div>
+      <h2 class="section-title">Everything You Need for<br />Financial Wellness</h2>
+      <p class="section-subtitle">
+        Six powerful tools designed to educate, protect, and empower you
+        on your financial journey.
+      </p>
+    </div>
+    <div class="row g-4">
+      {% set features = [
+        ('bi-chat-dots-fill', '#0f62fe', 'AI Financial Chat',
+         'Ask any financial question and get instant, jargon-free answers powered by IBM watsonx Orchestrate.',
+         'chat'),
+        ('bi-pie-chart-fill', '#198038', 'Budget Planner',
+         'Track your income and expenses. Get personalised suggestions to boost your savings rate.',
+         'budget'),
+        ('bi-calculator-fill', '#6929c4', 'EMI Calculator',
+         'Calculate monthly EMIs, total interest, and total repayment for any loan instantly.',
+         'emi'),
+        ('bi-shield-exclamation-fill', '#da1e28', 'Scam Awareness',
+         'Learn to identify OTP fraud, phishing, fake loan apps, and other common financial scams.',
+         'scam'),
+        ('bi-info-circle-fill', '#0043ce', 'About the Project',
+         'Discover how IBM Cloud Lite, IBM Granite, and watsonx power this financial literacy platform.',
+         'about'),
+        ('bi-envelope-fill', '#9f1853', 'Get in Touch',
+         'Have a question or feedback? Reach out to the FinWise AI team anytime.',
+         'contact'),
+      ] %}
+      {% for icon, color, title, desc, route in features %}
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card h-100">
+          <div class="fc-icon" style="background: {{ color }}15; color: {{ color }}">
+            <i class="bi {{ icon }}"></i>
+          </div>
+          <h5 class="fc-title mt-3">{{ title }}</h5>
+          <p class="fc-desc">{{ desc }}</p>
+          <a href="{{ url_for(route) }}" class="fc-link" style="color: {{ color }}">
+            Explore <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="py-6 bg-gradient-dark text-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="section-eyebrow text-blue-300">Why FinWise AI</div>
+        <h2 class="section-title text-white mb-4">Financial Literacy<br />for Everyone</h2>
+        <p class="text-white-75 mb-4">
+          Millions of Indians make financial decisions every day without adequate
+          knowledge, leaving them vulnerable to scams, high-interest debt, and
+          missed savings opportunities. FinWise AI bridges that gap.
+        </p>
+        <a href="{{ url_for('chat') }}" class="btn btn-hero-primary px-4 py-2">
+          <i class="bi bi-chat-dots-fill me-2"></i>Ask FinWise AI
+        </a>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-3">
+          {% set benefits = [
+            ('bi-lightning-charge-fill', 'Instant Answers', 'Get financial guidance in seconds, no appointment needed.'),
+            ('bi-translate', 'Plain Language', 'Complex finance explained simply — no jargon, no confusion.'),
+            ('bi-lock-fill', 'Safe & Private', 'No personal data stored. Your financial queries stay private.'),
+            ('bi-phone-fill', 'Mobile Friendly', 'Access all tools from any device, anywhere, anytime.'),
+            ('bi-cpu-fill', 'IBM-Powered', 'Built on IBM watsonx, one of the world\'s most trusted AI platforms.'),
+            ('bi-gift-fill', 'Completely Free', 'All tools, all features, zero cost. Financial literacy for all.'),
+          ] %}
+          {% for icon, title, desc in benefits %}
+          <div class="col-sm-6">
+            <div class="benefit-card">
+              <i class="bi {{ icon }} benefit-icon"></i>
+              <div>
+                <div class="benefit-title">{{ title }}</div>
+                <div class="benefit-desc">{{ desc }}</div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-6">
+  <div class="container text-center">
+    <div class="cta-box">
+      <div class="cta-icon mx-auto mb-4">
+        <i class="bi bi-robot"></i>
+      </div>
+      <h2 class="cta-title">Ready to take charge of your finances?</h2>
+      <p class="cta-subtitle">
+        Start a conversation with FinWise AI right now — no sign-up required.
+      </p>
+      <a href="{{ url_for('chat') }}" class="btn btn-hero-primary btn-lg px-5 py-3">
+        <i class="bi bi-chat-dots-fill me-2"></i>Start Chatting for Free
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
